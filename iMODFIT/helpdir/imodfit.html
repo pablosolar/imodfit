@@ -1,0 +1,114 @@
+<h1 style="color: #5e9ca0;"><span style="text-decoration: underline;">iMODFIT&nbsp;Chimera Plugin</span></h1>
+<h2 style="color: #2e6c80;">&nbsp;</h2>
+<h2 style="color: #2e6c80;">Introduction</h2>
+<p>This is a tutorial to use the iMODFIT&nbsp;molecular adjustment tool in Chimera. &nbsp;As a user, you will be able to load the plugin and perform a flexible fitting between PDB's and your&nbsp;density map. Just follow the instructions and enjoy :)</p>
+<h2 style="color: #2e6c80;">&nbsp;</h2>
+<h2 style="color: #2e6c80;">Loading the plugin</h2>
+<p>To load the plugin in Chimera:</p>
+<ul>
+<li>If you don't already have a directory on your computer that is specific for external plugins for chimera, create one called '<strong>Plugins</strong>' wherever you want.
+<div class="li">&nbsp;</div>
+</li>
+<li>
+<div class="li">If you haven't downloaded the plugin, do it here&nbsp;<a class="urlextern" title="http://cryoem.ucsd.edu/programs/code/LocalFSC_chimera.tar.gz" href="http://cryoem.ucsd.edu/programs/code/LocalFSC_chimera.tar.gz" rel="nofollow">iMODFIT_chimera.tar.gz</a></div>
+</li>
+</ul>
+<ul>
+<li>
+<div class="li">Uncompress the file in the '<strong>Plugins</strong>' directory.</div>
+</li>
+</ul>
+<ul>
+<li>In Chimera, go to <span style="color: #3366ff;"><em>Favorites</em> </span>&rarr;&nbsp;<em><span style="color: #3366ff;">Preferences</span></em>, from <em><span style="color: #3366ff;">Category</span> </em>select <span style="color: #3366ff;"><em>Tools</em> </span>and add the '<strong>Plugins</strong>' directory containing the <em>ADP EM</em> folder to the <span style="color: #3366ff;">Locations</span>.</li>
+</ul>
+<p>The <em>ADP EM</em>&nbsp;module will be under the <span style="color: #ff0000;"><em>Tools</em> </span>&rarr; <span style="color: #ff0000;"><em>EM Fitting</em></span>&nbsp;menu.</p>
+<h2 style="color: #2e6c80;">&nbsp;</h2>
+<h2 style="color: #2e6c80;">Using the&nbsp;plugin</h2>
+<p>When loaded, you will see this new window:</p>
+<p><a href="https://imgbb.com/"><img src="https://image.ibb.co/dFnhNa/Captura_de_pantalla_2017_05_17_a_las_20_10_08.png" alt="Captura de pantalla 2017 05 17 a las 20 10 08" border="0" /></a></p>
+<p>In the first row, you could choose you atomic structures and your maps loaded in Chimera.&nbsp;</p>
+<p>&nbsp;</p>
+<p>There are three required parameters to run the&nbsp;<em>ADP EM</em> fitting process:</p>
+<ul>
+<li><strong>Bandwidth</strong>: corresponds to the bandwidth in the harmonic transformation. Its values are set to 16, 24, 32, 48 or 64.&nbsp;</li>
+</ul>
+<ul>
+<li><strong>Resolution</strong>: depending on the type of element to fit:</li>
+</ul>
+<ul>
+<ol>- if a Pdb file is fitted &rarr;&nbsp;nominal resolution of the projection map in &Aring;.</ol>
+</ul>
+<ul>
+<ol>- If a 3d map is fitted &rarr;&nbsp;density threshold value for the fitted map.</ol>
+</ul>
+<ul>
+<li><strong>Cut-off</strong>: is the density threshold value for the experimetal map. All density levels below this value will be not considered. You can get this value from the level parameter showed in the Volume Viewer to adjust with more precision your map density.</li>
+</ul>
+<p>&nbsp;</p>
+<p>These parameters are the minimum required to perform the fitting. The next ones are advanced features that should be used carefully by the user:</p>
+<ul>
+<li><strong>Fitting criterion</strong>: this option sets the fitting criterion used:</li>
+</ul>
+<ul>
+<ol>- Standard linear cross-correlation &rarr;&nbsp;the scalar product between the density maps of the low resolution map and the low-pass filtered atomic structure. Recommended for resolutions &lt; 15&Aring; and when the atomic model accounts all the density of the map.</ol>
+</ul>
+<ul>
+<ol>- Laplacian filter &rarr;&nbsp;is applied by default (as told in 2.2) to maximize the fitting contrast. Recommended for resolutions &gt; 15&Aring; and when the atomic model only accounts a part of the density of the experimental map.</ol>
+</ul>
+<ul>
+<li><strong>Saved solutions</strong>: number of the saved solutions that <em>ADP EM </em>will compute (50 by default).</li>
+</ul>
+<ul>
+<li><strong>Translational sampling</strong>: in &Aring;, by default twice of voxel size of the density map. Values &gt; 6&Aring; should not be used.</li>
+</ul>
+<ul>
+<li><strong>Translational scan</strong>: translational scan strategy:</li>
+</ul>
+<ul>
+<ol>- Full search &rarr;&nbsp;all the translational points inside the target EM map will be explored.</ol>
+</ul>
+<ul>
+<ol>- Limited &rarr;&nbsp; radial search starting from the center of mass.</ol>
+</ul>
+<ul>
+<ol>- Masking search &rarr;&nbsp; default (as told in 2.2).</ol>
+</ul>
+<p>&nbsp;</p>
+<p>In addition to these parameters, some extra features had been provided to expertise users that know how to use the ADP EM tool and what objectives are they looking for. These parameteres can be found in the Options button, which displays a new panel to insert them:</p>
+<p>&nbsp;</p>
+<p><a href="https://imgbb.com/"><img src="https://image.ibb.co/cviGwQ/Captura_de_pantalla_2017_05_15_a_las_19_30_42.png" alt="Captura de pantalla 2017 05 15 a las 19 30 42" border="0" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<ul>
+<li><strong>Number peaks explored per docking</strong>: default 30.</li>
+</ul>
+<ul>
+<li><strong>Number peaks stored per iteration</strong>: default 20.</li>
+</ul>
+<ul>
+<li><strong>Number peaks stored in the search</strong>: default 100.</li>
+</ul>
+<ul>
+<li><strong>Number peaks stored in the multi-docking search</strong>: default 500.</li>
+</ul>
+<ul>
+<li><strong>Translational threshold in grid units</strong>: default 2.0.</li>
+</ul>
+<ul>
+<li><strong>Rotational threshold in degrees</strong>: default 360/bandwidth.</li>
+</ul>
+<ul>
+<li><strong>Width between spherical layers</strong>: default 1.0.</li>
+</ul>
+<ul>
+<li><strong>Density cut-off of the simulated map</strong>: default 0.0</li>
+</ul>
+<p>&nbsp;</p>
+<p>Once you have inserted the parameters you want for the adjustement, simply click&nbsp;<em>Fit</em> and enjoy. You will see the process log in a new window and, when it is finished, you could check the results in the correspondet panel.</p>
+<h2 style="color: #2e6c80;">Credits</h2>
+<p>The plugin was developed by Pablo Solar for Pablo Chac&oacute;n's group (<a href="http://chaconlab.org/">chaconlab</a>). Acknowledgements go to Pablo Chac&oacute;n and Jos&eacute; Ram&oacute;n L&oacute;pez Blanco, CSIC, for sharing their time with me, wisdom and&nbsp;friendliness, and to Tom Goddard, UCSF, for providing useful insights.</p>
+<p>&nbsp;</p>
+<h2 style="color: #2e6c80;">Citation</h2>
+<p>If you find this plugin useful for your research project, please cite:</p>
+<p>Cardone G., J. B. Heymann, and A. C. Steven (2013) One number does not fit all: mapping local variations in resolution in cryo-EM reconstructions. J. Struct. Biol. 184:226-236. (<a class="urlextern" title="http://dx.doi.org/10.1016/j.jsb.2013.08.002" href="http://dx.doi.org/10.1016/j.jsb.2013.08.002" rel="nofollow">http://dx.doi.org/10.1016/j.jsb.2013.08.002</a>)</p>
+<p><strong>&nbsp;</strong></p>

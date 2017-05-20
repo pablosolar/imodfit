@@ -1,0 +1,3 @@
+# imodfit> Welcome to iMODFIT v1.45
+/Users/Solar/Desktop/TFM/Plugins/iMODFIT/imodfit /Users/Solar/Desktop/TFM/Plugins/iMODFIT/adpEM0001.pdb /Users/Solar/Desktop/TFM/Plugins/iMODFIT/emd1047.ccp4 15 0.06 -m 2 -t -r 0.9 --rediag 0.9 --morepdbs -n 10 --delta_save 0.2 --seed 1817826103
+#imodfit> Best filtration method: 2 FT(x10)=0.733s Kernel(x10)=0.280s
