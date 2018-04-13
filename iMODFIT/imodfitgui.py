@@ -86,6 +86,7 @@ class iMODFIT_Dialog(ModelessDialog):
         """
         Master function for dialog contents
         :param parent: parent Tkinter frame
+        
         :return:
         """
         t = parent.winfo_toplevel()
@@ -268,6 +269,7 @@ class iMODFIT_Dialog(ModelessDialog):
         """
         Shows a message in iMODFIT Plugin
         :param text: text to show
+        
         :return:
         """
         self.message_label['text'] = text
@@ -277,6 +279,7 @@ class iMODFIT_Dialog(ModelessDialog):
     def fit_map(self):
         """
         Map chosen to fit into base map.
+        
         :return:
         """
         m = self.object_menu.getvalue()
@@ -289,6 +292,7 @@ class iMODFIT_Dialog(ModelessDialog):
     def fit_atoms(self):
         """
         Atoms chosen in dialog for fitting.
+        
         :return:
         """
         m = self.object_menu.getvalue()
@@ -305,6 +309,7 @@ class iMODFIT_Dialog(ModelessDialog):
     def get_options_chimera(self):
         """
         Gets the parameter values introduced by the user
+        
         :return:
         """
         # Model type
@@ -352,6 +357,7 @@ class iMODFIT_Dialog(ModelessDialog):
     def Fit(self):
         """
         Performs the iMODFIT process
+        
         :return:
         """
         # If a fitting is performed when Results panel is active, close it
@@ -507,6 +513,7 @@ class iMODFIT_Dialog(ModelessDialog):
     def fill_results(self):
         """
         Fills the Results panel with the corresponding components
+        
         :return:
         """
         # Button to open the MD Movie created by iMODTFIT with the model trajectories
@@ -519,6 +526,7 @@ class iMODFIT_Dialog(ModelessDialog):
     def load_model(self):
         """
         Loads actual model selected
+        
         :return:
         """
         model_path = os.path.join(self.cwd, '_'.join([self.pdb_basename, 'fitted.pdb']))
@@ -529,6 +537,7 @@ class iMODFIT_Dialog(ModelessDialog):
     def refresh_model(self):
         """
         Refresh actual model selected
+        
         :return:
         """
         self.show_fitted_molecule(True)
@@ -538,7 +547,9 @@ class iMODFIT_Dialog(ModelessDialog):
         """
         Reads the coordinates of the fitted molecule and updates the original
         molecule position to show the fitting made by iMODFIT
+        
         :param fitted: flag to choose the original molecule or the fitted one
+        
         :return:
         """
         try:
@@ -618,6 +629,7 @@ class iMODFIT_Dialog(ModelessDialog):
     def open_movie(self):
         """
         Opens the MD movie created by iMODTFIT with the model trajectories
+        
         :return:
         """
         # Import the native dialog MovieDialog from Chimera
@@ -637,6 +649,7 @@ class iMODFIT_Dialog(ModelessDialog):
     def disable_process_buttons(self):
         """
         Disables the the iMODFIT GUI Fit, Options, Close and Results buttons
+        
         :return:
         """
         self.fit_button = self.buttonWidgets['Fit']
@@ -651,6 +664,7 @@ class iMODFIT_Dialog(ModelessDialog):
     def enable_process_buttons(self):
         """
         Enables the the iMODFIT GUI Fit, Options, Close and Results buttons
+        
         :return:
         """
         self.fit_button = self.buttonWidgets['Fit']
@@ -666,6 +680,7 @@ class iMODFIT_Dialog(ModelessDialog):
     def Options(self):
         """
         When Options button is pressed, the Result panel is hidden and Options panel is shown
+        
         :return:
         """
         self.results_panel.set(False)
@@ -675,6 +690,7 @@ class iMODFIT_Dialog(ModelessDialog):
     def Results(self):
         """
         When Results button is pressed, the Options panel is hidden and Results panel is shown
+        
         :return:
         """
         self.options_panel.set(False)
@@ -685,6 +701,7 @@ class iMODFIT_Dialog(ModelessDialog):
     def abort(self):
         """
         Aborts iMODFIT Process
+        
         :return:
         """
         self.imodfit_process.kill()
@@ -697,6 +714,7 @@ class iMODFIT_Dialog(ModelessDialog):
 
         Useful when the user does not know an appropiate resolution and plays
         with the map density in this dialog.
+        
         :return:
         """
         # validate if the map is loaded/choosed
@@ -720,6 +738,7 @@ class iMODFIT_Dialog(ModelessDialog):
         Validates the values of the parameteres introduced by the users.
 
         Moreover, check if molecule and maps are loaded
+        
         :return:
         """
         fatoms = self.fit_atoms()
@@ -747,6 +766,7 @@ class iMODFIT_Dialog(ModelessDialog):
     def full_atoms(self):
         """
         Enables/Disables the full-atoms model check button
+        
         :return:
         """
         # Model type
@@ -760,7 +780,9 @@ class iMODFIT_Dialog(ModelessDialog):
     def representsInt(self, number):
         """
         Validates if a string represents an integer
+        
         :param number: a string representing a number
+        
         :return:
         """
         try:
@@ -773,7 +795,9 @@ class iMODFIT_Dialog(ModelessDialog):
     def representsFloat(self, number):
         """
         Validates if a string represents an integer
+        
         :param number: a string representing a number
+        
         :return:
         """
         try:
@@ -790,6 +814,7 @@ class LabeledCheckbutton(Tkinter.Frame):
     def __init__(self, root):
         """
         Constructor
+        
         :param root: Tkinter frame to allocate widgets
         """
         Tkinter.Frame.__init__(self, root)
@@ -803,6 +828,7 @@ def fit_object_models():
     """
     Returns a list of molecules from the models opened in Chimera
     to be selectables for the fitting
+    
     :return:
     """
     mlist = om.list(modelTypes=[Molecule])
@@ -813,8 +839,10 @@ def fit_object_models():
 def compare_fit_objects(a, b):
     """
     Puts 'selected atoms'pyt first, then all molecules, then all volumes.
+    
     :param a: atom A
     :param b: atom B
+    
     :return: true or false depending on the comparison
     """
     if a == 'selected atoms':
@@ -835,6 +863,7 @@ def compare_fit_objects(a, b):
 def show_imodfit_dialog():
     """
     Shows the iMODFIT Dialog in Chimera when it is registered
+    
     :return:
     """
     return dialogs.display(iMODFIT_Dialog.name)
