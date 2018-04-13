@@ -4,8 +4,6 @@
 #
 import chimera.extension
 
-# -----------------------------------------------------------------------------
-#
 class iMODFIT_EMO(chimera.extension.EMO):
 
     def name(self):
