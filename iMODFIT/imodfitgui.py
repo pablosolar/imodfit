@@ -3,6 +3,7 @@
 #
 
 import Tkinter
+from Tkinter import *
 import os
 import sys
 from subprocess import STDOUT, PIPE, Popen
