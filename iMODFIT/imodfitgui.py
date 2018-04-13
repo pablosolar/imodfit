@@ -85,6 +85,7 @@ class iMODFIT_Dialog(ModelessDialog):
     def fillInUI(self, parent):
         """
         Master function for dialog contents
+        
         :param parent: parent Tkinter frame
         
         :return:
@@ -268,6 +269,7 @@ class iMODFIT_Dialog(ModelessDialog):
     def message(self, text):
         """
         Shows a message in iMODFIT Plugin
+        
         :param text: text to show
         
         :return:
